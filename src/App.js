@@ -1,24 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import {CounterProvider, useCounterStore} from "./global-store/useCounterStore";
+import CounterView from "./components/CounterView";
+import CounterController from "./controller/CounterController";
+import {DummyComp} from "./components/DummyComp";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <CounterProvider>
+            <CounterView />
+            <CounterController />
+            <DummyComp />
+          </CounterProvider>
+
+        </header>
+
+      </div>
   );
 }
 
